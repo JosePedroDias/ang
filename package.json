@@ -8,7 +8,7 @@
     "eslint": "eslint .",
     "concat": "concat-cli -f src/**.js -o dist/tmp.js && ng-annotate -a dist/tmp.js -o dist/tmp2.js",
     "uglify": "uglifyjs dist/tmp2.js -o dist/tmp3.js -m --screw-ie8 && concat-cli -f node_modules/angular/angular.min.js dist/tmp3.js -o dist/bundle.js",
-    "serve": "python -m SimpleHTTPServer 5555 &",
+    "serve": "cd dist && python -m SimpleHTTPServer 5555 &",
     "imagemin": "imagemin assets/images/* dist/images/* -p",
     "build:js": "npm run eslint && npm run concat && npm run uglify",
     "build:images": "npm run imagemin",
@@ -25,6 +25,7 @@
     "imagemin": "^4.0.0",
     "imagemin-cli": "^2.1.0",
     "ng-annotate": "^1.2.1",
+    "sass": "^0.5.0",
     "uglify-js": "^2.6.1"
   }
 }
