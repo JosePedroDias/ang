@@ -1,3 +1,7 @@
+# minimal angular + package.json + purecss start code
+(ongoing)
+
+
 ## TODO
 
 * complete SASS usage
