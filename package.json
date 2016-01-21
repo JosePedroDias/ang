@@ -6,18 +6,29 @@
     "prepare": "cp node_modules/purecss/build/pure-min.css assets/css/",
     "clean": "rm -rf dist && mkdir dist && cp index.html dist",
     "eslint": "eslint .",
-    "concat": "concat-cli -f src/**.js -o dist/tmp.js && ng-annotate -a dist/tmp.js -o dist/tmp2.js",
-    "uglify": "uglifyjs dist/tmp2.js -o dist/tmp3.js -m --screw-ie8 && concat-cli -f node_modules/angular/angular.min.js dist/tmp3.js -o dist/bundle.js",
+    "concat": "concat-cli -f src/**.js -o /tmp/ang.js && ng-annotate -a /tmp/ang.js -o /tmp/ang2.js",
+    "uglify": "uglifyjs /tmp/ang2.js -o /tmp/ang3.js -m --screw-ie8 && concat-cli -f node_modules/angular/angular.min.js /tmp/ang3.js -o dist/bundle.js",
     "serve": "cd dist && python -m SimpleHTTPServer 5555 &",
-    "imagemin": "imagemin assets/images/* dist/images/* -p",
+    "imagemin": "imagemin assets/images/* dist/images -p",
     "build:js": "npm run eslint && npm run concat && npm run uglify",
     "build:images": "npm run imagemin",
     "build": "npm run clean && npm run build:js && npm run build:images",
-    "watch": "watch 'npm run build' ."
+    "watch": "watch 'npm run build' .",
+    "unit-test": "karma start",
+    "postinstall": "webdriver-manager update",
+    "selenium-hub": "webdriver-manager start",
+    "e2e-test": "protractor .protractor.conf.js --verbose"
   },
   "devDependencies": {
     "angular": "^1.4.8",
-    "purecss": "latest"
+    "karma": "^0.13.19",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.3",
+    "phantomjs": "^1.9.19",
+    "protractor": "^3.0.0",
+    "purecss": "latest",
+    "sass": "^0.5.0",
+    "sass-lint": "^1.4.0"
   },
   "dependencies": {
     "concat-cli": "^4.0.0",
