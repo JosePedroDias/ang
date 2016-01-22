@@ -1,0 +1,8 @@
+<section>
+  <ul>
+    <li ng-repeat="contestant in ctrl.contestants">
+      {{contestant.firstName}} {{contestant.lastName}}
+    </li>
+  </ul>
+  <contestant-editor contestants="ctrl.contestants"></contestant-editor>
+</section>

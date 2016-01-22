@@ -1,4 +1,8 @@
 @import 'vars';
 @import 'grid';
 
+body {
+  font-family: $default-font;
+}
+
 @import 'feature1';

@@ -4,26 +4,22 @@
   "description": "minimal angular setup with tooling",
   "scripts": {
     "clean": "rm -rf dist && mkdir dist && cp index.html dist",
-
     "lint:js": "eslint -c .eslintrc src||true",
-    "lint:css": "sass-lint -c .sass-lint.yml -s scss -v",
+    "lint:css": "sass-lint -c .sass-lint.yml -s scss -v||true",
     "lint": "npm run lint:js && npm run lint:css",
-
-    "concat": "concat-cli -f src/**.js -o /tmp/ang.js && ng-annotate -a /tmp/ang.js -o /tmp/ang2.js",
+    "concat": "concat-cli -f src/*.js src/**/*.js -o /tmp/ang.js && ng-annotate -a /tmp/ang.js -o /tmp/ang2.js",
     "uglify": "uglifyjs /tmp/ang2.js -o /tmp/ang3.js -m --screw-ie8 && concat-cli -f node_modules/angular/angular.min.js /tmp/ang3.js -o dist/bundle.js",
     "build:js": "npm run concat && npm run uglify",
-    "build:images": "imagemin assets/images/* dist/images -p",
-    "build:css": "node-sass --output-style compressed assets/css/main.scss dist/main.css",
-    "build": "npm run clean && npm run build:js && npm run build:images && npm run build:css",
-
+    "build:images": "imagemin -o 7 assets/images/* dist/images",
+    "build:css": "node-sass --output-style compressed assets/css/main.scss dist/main.css||true",
+    "build:html": "find src -name '*.html' | cpio -pdm dist && mv dist/src/* dist && rmdir dist/src",
+    "build": "npm run clean && npm run build:js && npm run build:css && npm run build:html && npm run build:images",
     "test:unit": "karma start",
     "test:e2e": "protractor .protractor.conf.js --verbose",
     "test": "npm run test:unit && npm run test:e2e",
-
     "selenium-hub": "webdriver-manager start",
-    "serve": "cd dist && python -m SimpleHTTPServer 5555 &",
+    "serve": "serve -S -J -I -L -D -p 8000 dist &",
     "watch": "watch 'npm run build' .",
-
     "postinstall": "webdriver-manager update"
   },
   "devDependencies": {
@@ -35,7 +31,8 @@
     "phantomjs": "*",
     "protractor": "*",
     "sass": "*",
-    "sass-lint": "*"
+    "sass-lint": "*",
+    "serve": "*"
   },
   "dependencies": {
     "concat-cli": "*",
