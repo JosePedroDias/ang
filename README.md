@@ -11,12 +11,12 @@
 * has e2e tests set up with protractor and jasmine
 * does JS linting with eslint
 * does SCSS linting with sass-lint
+* pretty dumb componentized app
 
 
 ## yet to do
 
 * compute angular templates to JS
-* do a simple example app
 
 
 ## How do I?
