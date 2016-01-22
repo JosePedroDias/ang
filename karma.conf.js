@@ -1,4 +1,6 @@
-module.exports = function(config) {
+module.exports = function (config) {
+  'use strict';
+
   config.set({
     basePath: '',
     frameworks: ['jasmine'],
@@ -17,5 +19,5 @@ module.exports = function(config) {
     browsers: ['PhantomJS'],
     singleRun: true,
     concurrency: Infinity
-  })
-}
+  });
+};

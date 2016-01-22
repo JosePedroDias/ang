@@ -1,0 +1,15 @@
+$grid-gutter: 10px;
+$grid-columns: 12;
+$grid-max: 980px;
+
+[class*='grid-'] {
+  float: left;
+  padding: 0 $grid-gutter;
+  margin-bottom: 20px;
+}
+
+@for $i from 1 through $grid-columns {
+  .grid-#{$i} {
+    width: 100% / $grid-columns * $i;
+  }
+}
