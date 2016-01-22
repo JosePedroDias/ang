@@ -1,42 +1,49 @@
 {
   "name": "ang",
   "version": "1.0.0",
-  "description": "minimal angular + package.json + purecss start code",
+  "description": "minimal angular setup with tooling",
   "scripts": {
-    "prepare": "cp node_modules/purecss/build/pure-min.css assets/css/",
     "clean": "rm -rf dist && mkdir dist && cp index.html dist",
-    "eslint": "eslint .",
+
+    "lint:js": "eslint -c .eslintrc src||true",
+    "lint:css": "sass-lint -c .sass-lint.yml -s scss -v",
+    "lint": "npm run lint:js && npm run lint:css",
+
     "concat": "concat-cli -f src/**.js -o /tmp/ang.js && ng-annotate -a /tmp/ang.js -o /tmp/ang2.js",
     "uglify": "uglifyjs /tmp/ang2.js -o /tmp/ang3.js -m --screw-ie8 && concat-cli -f node_modules/angular/angular.min.js /tmp/ang3.js -o dist/bundle.js",
-    "serve": "cd dist && python -m SimpleHTTPServer 5555 &",
-    "imagemin": "imagemin assets/images/* dist/images -p",
-    "build:js": "npm run eslint && npm run concat && npm run uglify",
-    "build:images": "npm run imagemin",
-    "build": "npm run clean && npm run build:js && npm run build:images",
-    "watch": "watch 'npm run build' .",
-    "unit-test": "karma start",
-    "postinstall": "webdriver-manager update",
+    "build:js": "npm run concat && npm run uglify",
+    "build:images": "imagemin assets/images/* dist/images -p",
+    "build:css": "node-sass --output-style compressed assets/css/main.scss dist/main.css",
+    "build": "npm run clean && npm run build:js && npm run build:images && npm run build:css",
+
+    "test:unit": "karma start",
+    "test:e2e": "protractor .protractor.conf.js --verbose",
+    "test": "npm run test:unit && npm run test:e2e",
+
     "selenium-hub": "webdriver-manager start",
-    "e2e-test": "protractor .protractor.conf.js --verbose"
+    "serve": "cd dist && python -m SimpleHTTPServer 5555 &",
+    "watch": "watch 'npm run build' .",
+
+    "postinstall": "webdriver-manager update"
   },
   "devDependencies": {
-    "angular": "^1.4.8",
-    "karma": "^0.13.19",
-    "karma-jasmine": "^0.3.6",
-    "karma-phantomjs-launcher": "^0.2.3",
-    "phantomjs": "^1.9.19",
-    "protractor": "^3.0.0",
-    "purecss": "latest",
-    "sass": "^0.5.0",
-    "sass-lint": "^1.4.0"
+    "angular": "1.4.x",
+    "karma": "*",
+    "karma-jasmine": "*",
+    "karma-phantomjs-launcher": "*",
+    "node-sass": "*",
+    "phantomjs": "*",
+    "protractor": "*",
+    "sass": "*",
+    "sass-lint": "*"
   },
   "dependencies": {
-    "concat-cli": "^4.0.0",
-    "eslint": "^1.10.3",
-    "imagemin": "^4.0.0",
-    "imagemin-cli": "^2.1.0",
-    "ng-annotate": "^1.2.1",
-    "sass": "^0.5.0",
-    "uglify-js": "^2.6.1"
+    "concat-cli": "*",
+    "eslint": "*",
+    "imagemin": "*",
+    "imagemin-cli": "*",
+    "ng-annotate": "*",
+    "sass": "*",
+    "uglify-js": "*"
   }
 }

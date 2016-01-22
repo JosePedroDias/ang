@@ -1,6 +1,104 @@
 {
-    "env": {
-        "browser": true,
-        "amd": true
-    }
+  "rules": {
+    "block-scoped-var": 1,
+    "brace-style": [2, "1tbs"],
+    "camelcase": [2, {
+      "properties": "always"
+    }],
+    "comma-dangle": [2, "never"],
+    "comma-spacing": [2, {
+      "before": false,
+      "after": true
+    }],
+    "comma-style": [2, "last"],
+    "curly": 2,
+    "dot-notation": 2,
+    "eol-last": 2,
+    "eqeqeq": 2,
+    "indent": [2, 2, {"VariableDeclarator": 2}],
+    "new-cap": 2,
+    "new-parens": 2,
+    "no-dupe-args": 2,
+    "no-dupe-keys": 2,
+    "no-empty": 2,
+    "no-eq-null": 2,
+    "no-extra-boolean-cast": 2,
+    "no-extra-semi": 2,
+    "no-loop-func": 2,
+    "no-mixed-spaces-and-tabs": 2,
+    "no-multi-spaces": 2,
+    "no-multi-str": 2,
+    "no-multiple-empty-lines": [2, {"max": 1}],
+    "no-native-reassign": 2,
+    "no-nested-ternary": 1,
+    "no-new": 2,
+    "no-new-func": 2,
+    "no-new-object": 2,
+    "no-new-wrappers": 2,
+    "no-param-reassign": 1,
+    "no-redeclare": 2,
+    "no-return-assign": 2,
+    "no-self-compare": 2,
+    "no-shadow": 1,
+    "no-shadow-restricted-names": 2,
+    "no-spaced-func": 2,
+    "no-trailing-spaces": 1,
+    "no-undef": 1,
+    "no-undef-init": 2,
+    "no-unreachable": 2,
+    "no-unused-vars": 1,
+    "no-use-before-define": 1,
+    "one-var": [2, "always"],
+    "quotes": [1, "single"],
+    "semi": [2, "always"],
+    "semi-spacing": [2, {
+      "before": false, "after": true
+    }],
+    "sort-vars": [2, {
+      "ignoreCase": false
+    }],
+    "space-after-keywords": 2,
+    "space-before-blocks": 2,
+    "space-before-function-paren": [1, "always"],
+    "space-infix-ops": 2,
+    "space-return-throw-case": 2,
+    "strict": 1,
+    "use-isnan": 2,
+    "vars-on-top": 2,
+    "yoda": 0
+  },
+  "env": {
+    "browser": true,
+    "jasmine": true,
+    "node": true
+  },
+  "globals": {
+    "afterEach": false,
+    "angular": false,
+    "beforeEach": false,
+    "browser": false,
+    "by": false,
+    "define": false,
+    "describe": false,
+    "element": false,
+    "expect": false,
+    "grunt": false,
+    "inject": false,
+    "it": false,
+    "jasmine": false,
+    "mock": false,
+    "Modernizr": false,
+    "module": false,
+    "protractor": false,
+    "require": false,
+    "requirejs": false,
+    "runs": false,
+    "sinon": false,
+    "sleep": false,
+    "spyOn": false,
+    "waits": false,
+    "waitsFor": false,
+    "xdescribe": false,
+    "xit": false
+  }
 }

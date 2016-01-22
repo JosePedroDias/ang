@@ -9,19 +9,25 @@
 * optimizes images
 * has unit tests set up with karma and jasmine
 * has e2e tests set up with protractor and jasmine
+* does js linting with eslint
+* does scss linting with sass-lint
 
 
 ## yet to do
 
-* sass step, sass linting rules, add it to the process
 * sass grid example
-* imagemin testing (not sure it's well configured)
 * compute angular templates to JS
-* basic web server with proxies (out of scope maybe)
+* imagemin testing (not sure it's well configured)
+* basic web server
 * do a simple example app
 
 
 ## How do I?
+
+### lint
+
+> npm run lint
+
 
 ### build
 
@@ -30,7 +36,7 @@
 
 ### perform unit tests
 
-> npm run unit-test
+> npm run test:unit
 
 
 ### perform end to end tests
@@ -42,7 +48,7 @@ In a different tab do:
 
 Then:
 
-> npm run e2e-test
+> npm run test:e2e
 
 
 You can let the hub die after testing via pressing enter at its console

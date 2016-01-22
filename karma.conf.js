@@ -15,7 +15,7 @@ module.exports = function(config) {
     logLevel: config.LOG_INFO, // LOG_DISABLE LOG_ERROR LOG_WARN LOG_INFO LOG_DEBUG
     autoWatch: true,
     browsers: ['PhantomJS'],
-    singleRun: false,
+    singleRun: true,
     concurrency: Infinity
   })
 }
