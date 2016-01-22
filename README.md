@@ -11,12 +11,9 @@
 * has e2e tests set up with protractor and jasmine
 * does JS linting with eslint
 * does SCSS linting with sass-lint
-* pretty dumb componentized app
+* converts angular templates into JavaScript calls via ng-html-to-js
+* features a pretty dumb componentized example app
 
-
-## yet to do
-
-* compute angular templates to JS
 
 
 ## How do I?

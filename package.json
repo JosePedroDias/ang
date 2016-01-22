@@ -12,7 +12,8 @@
     "build:js": "npm run concat && npm run uglify",
     "build:images": "imagemin -o 7 assets/images/* dist/images",
     "build:css": "node-sass --output-style compressed assets/css/main.scss dist/main.css||true",
-    "build:html": "find src -name '*.html' | cpio -pdm dist && mv dist/src/* dist && rmdir dist/src",
+    "xxbuild:html": "find src -name '*.html' | cpio -pdm dist && mv dist/src/* dist && rmdir dist/src",
+    "build:html": "cp dist/bundle.js /tmp/angbundle.js && ng-html-to-js -s src -d dist/bundle.js -v && cat /tmp/angbundle.js >> dist/bundle.js",
     "build": "npm run clean && npm run build:js && npm run build:css && npm run build:html && npm run build:images",
     "test:unit": "karma start",
     "test:e2e": "protractor .protractor.conf.js --verbose",
@@ -23,24 +24,23 @@
     "postinstall": "webdriver-manager update"
   },
   "devDependencies": {
-    "angular": "1.4.x",
+    "eslint": "*",
     "karma": "*",
     "karma-jasmine": "*",
     "karma-phantomjs-launcher": "*",
-    "node-sass": "*",
     "phantomjs": "*",
     "protractor": "*",
-    "sass": "*",
     "sass-lint": "*",
     "serve": "*"
   },
   "dependencies": {
+    "angular": "1.4.x",
     "concat-cli": "*",
-    "eslint": "*",
+    "node-sass": "*",
     "imagemin": "*",
     "imagemin-cli": "*",
     "ng-annotate": "*",
-    "sass": "*",
+    "ng-html-to-js": "*",
     "uglify-js": "*"
   }
 }
