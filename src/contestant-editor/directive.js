@@ -1,10 +1,10 @@
-angular.module('app', [])
+angular.module('app')
   .directive('contestantEditor', function () {
     return {
       scope: {
         contestants: '='
       },
-      templateUrl: 'contestant-editor/directive.html',
+      templateUrl: '/contestant-editor/directive.html',
       replace: true,
       controller: 'ContestantEditorCtrl',
       controllerAs: 'ctrl'

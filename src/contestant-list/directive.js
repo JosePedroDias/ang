@@ -2,7 +2,7 @@ angular.module('app')
   .directive('contestantList', function () {
     return {
       scope: {},
-      templateUrl: 'contestant-list/directive.html',
+      templateUrl: '/contestant-list/directive.html',
       replace: true,
       controller: 'ContestantListCtrl',
       controllerAs: 'ctrl'
