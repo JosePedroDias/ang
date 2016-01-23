@@ -18,6 +18,11 @@
 
 ## How do I?
 
+### set it up
+
+> [sudo] npm install
+
+
 ### lint
 
 > npm run lint
@@ -26,6 +31,11 @@
 ### build
 
 > npm run build
+
+
+### serve the resulting app
+
+> npm run serve
 
 
 ### perform unit tests
