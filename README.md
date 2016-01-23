@@ -1,4 +1,4 @@
-# angular - best practices and least dependencies with tooling
+# angular project with best practices & few dependencies, using npm scripts
 
 
 ## what it does
